@@ -13,9 +13,16 @@
     flex:0.3;
     display: flex;
     align-items: center;
-    justify-content: space-between;
     color: white;
     width: 300px;
+}
+
+.footer__songInfo > h4{
+    margin-bottom: 5px;
+}
+
+.footer__songInfo > p{
+    font-size: 12px;
 }
 
 .footer__albumLogo{
@@ -35,10 +42,23 @@
     max-width: 300px;
 }
 
+.footer__green{
+    color: #1ed15e;
+}
+
+.footer__green:hover, .footer__icon:hover{
+    transition: transform 0.2s ease-in-out;
+    transform: scale(1.2) !important;
+}
+
 .footer__right{
     flex: 0.3;
     color: white;
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.footer__right * .MuiSlider-root {
+    color: green;
 }

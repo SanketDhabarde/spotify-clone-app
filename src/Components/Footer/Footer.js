@@ -16,16 +16,16 @@ function Footer() {
                 <img className="footer__albumLogo"
                 src="https://images.unsplash.com/photo-1598386860329-3d7214504a3f?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8c29uZyUyMGFsYnVtfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="" />
                 <div className="footer__songInfo">
-                    <h4>No songs playing</h4>
-                    <p>...</p>
+                    <h4>Alone</h4>
+                    <p>Alan Walker</p>
                 </div>
             </div>
             <div className="footer__center">
-                <ShuffleIcon/>
-                <SkipPreviousIcon/>
-                <PlayCircleFilledIcon fontSize="large"/>
-                <SkipNextIcon/>
-                <RepeatIcon/>
+                <ShuffleIcon className="footer__green"/>
+                <SkipPreviousIcon className="footer__icon"/>
+                <PlayCircleFilledIcon fontSize="large" className="footer__icon"/>
+                <SkipNextIcon className="footer__icon"/>
+                <RepeatIcon className="footer__green"/>
             </div>
             <div className="footer__right">
                 <Grid container spacing={2}>
