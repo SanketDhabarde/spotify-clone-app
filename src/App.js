@@ -34,12 +34,20 @@ function App() {
             user: user
         });
 
-      spotify.getUserPlaylists().then(_playlists => {
-        dispatch({
-          type: 'SET_PLAYLISTS',
-          playlists: _playlists
+        spotify.getUserPlaylists().then(_playlists => {
+          dispatch({
+            type: 'SET_PLAYLISTS',
+            playlists: _playlists
+          })
+        });
+
+        spotify.getPlaylist("37i9dQZEVXcFIhrwVNssHq").then(response => {
+          dispatch({
+            type: 'SET_DISCOVER_WEEKLY',
+            discover_weekly: response
+          })
         })
-      })
+
       })
     }
   }, [dispatch]);
@@ -49,7 +57,7 @@ function App() {
     <div className="app">
       {
         token ? (
-          <Player/>
+          <Player spotify={spotify}/>
         ) : (
           <Login/>
         )
