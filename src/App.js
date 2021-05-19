@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import Login from './Components/Login/Login';
 import { getTokenFromUrl } from './spotify';
@@ -11,9 +11,8 @@ const spotify = new SpotifyWebApi();
 
 function App() {
   // const [{ user }, dispatch] = useDataLayerValue();
-  const [{playlists, token }, dispatch] = useDataLayerValue();
+  const [{ token }, dispatch] = useDataLayerValue();
   
-  console.log(playlists);
   useEffect(() => {
     const _token = getTokenFromUrl;
     // empty the url after getting token

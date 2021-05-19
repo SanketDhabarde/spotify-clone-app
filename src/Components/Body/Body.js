@@ -6,11 +6,10 @@ import SongRow from '../SongRow/SongRow';
 import './Body.css';
 
 function Body({ spotify }) {
-    const [{ discover_weekly }, dispatch] = useDataLayerValue();
+    const [{ discover_weekly }] = useDataLayerValue();
     const [search, setSearch] = useState("");
     const [searchResult, setSearchResult] = useState([]);
-
-    console.log(searchResult);
+    
     useEffect(() => {
         const timer = setTimeout(() => {
             if(search){
@@ -23,7 +22,7 @@ function Body({ spotify }) {
         return () => {
             clearTimeout(timer);
         };
-    }, [search])
+    }, [search, spotify])
     return (
         <div className="body">
            <Header search={search} setSearch={setSearch}/>
@@ -52,7 +51,7 @@ function Body({ spotify }) {
                     <MoreHoriz />
                 </div>
                 {discover_weekly?.tracks.items.map(item => (
-                    <SongRow track={item.track}/>
+                    <SongRow track={item.track} key={item.track.id}/>
                 ))}
             </div>
             </>
