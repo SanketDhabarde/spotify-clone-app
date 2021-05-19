@@ -11,9 +11,9 @@ const spotify = new SpotifyWebApi();
 
 function App() {
   // const [{ user }, dispatch] = useDataLayerValue();
-  const [{ token }, dispatch] = useDataLayerValue();
+  const [{playlists, token }, dispatch] = useDataLayerValue();
   
-
+  console.log(playlists);
   useEffect(() => {
     const _token = getTokenFromUrl;
     // empty the url after getting token
@@ -26,7 +26,7 @@ function App() {
       });
       // connect spotify with react using token
       spotify.setAccessToken(_token);
-      // get the user from spotify
+      // get the current user from spotify
       spotify.getMe().then(user => {
         // add the user into context or data layer
         dispatch({

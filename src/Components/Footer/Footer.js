@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Footer.css';
 import ShuffleIcon from '@material-ui/icons/Shuffle';
 import SkipPreviousIcon from '@material-ui/icons/SkipPrevious';
@@ -9,7 +9,23 @@ import VolumeDownIcon from '@material-ui/icons/VolumeDown';
 import PlaylistPlayIcon from '@material-ui/icons/PlaylistPlay';
 import { Grid, Slider } from '@material-ui/core';
 
-function Footer() {
+function Footer({spotify}) {
+
+    useEffect(() => {
+        spotify.getMyCurrentPlaybackState().then((r) => {
+          console.log(r);
+    
+        //   dispatch({
+        //     type: "SET_PLAYING",
+        //     playing: r.is_playing,
+        //   });
+    
+        //   dispatch({
+        //     type: "SET_ITEM",
+        //     item: r.item,
+        //   });
+        });
+      }, [spotify]);
     return (
         <div className="footer">
             <div className="footer__left">

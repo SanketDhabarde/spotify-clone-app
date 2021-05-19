@@ -1,5 +1,5 @@
 import { Favorite, MoreHoriz, PlayCircleFilled } from '@material-ui/icons';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDataLayerValue } from '../../Context/DataLayer';
 import Header from '../Header/Header';
 import SongRow from '../SongRow/SongRow';
@@ -7,10 +7,34 @@ import './Body.css';
 
 function Body({ spotify }) {
     const [{ discover_weekly }, dispatch] = useDataLayerValue();
+    const [search, setSearch] = useState("");
+    const [searchResult, setSearchResult] = useState([]);
 
+    console.log(searchResult);
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            if(search){
+                spotify.searchTracks(search).then(res => {
+                    setSearchResult(res.tracks.items);
+                })
+            }
+          }, 1000);  
+        
+        return () => {
+            clearTimeout(timer);
+        };
+    }, [search])
     return (
         <div className="body">
-            <Header/>
+           <Header search={search} setSearch={setSearch}/>
+           {search ? (
+               <div className="body__songs">
+                   {searchResult.map(track => (
+                        <SongRow track={track} key={track.url}/>
+                   ))}
+               </div>
+           ): (
+            <>
             <div className="body__info">
                 <img src={discover_weekly?.images[0].url} alt="" />
                 <div className="body__infoText">
@@ -31,6 +55,8 @@ function Body({ spotify }) {
                     <SongRow track={item.track}/>
                 ))}
             </div>
+            </>
+           )} 
         </div>
     )
 }
