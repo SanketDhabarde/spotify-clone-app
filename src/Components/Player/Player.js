@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
 import Body from '../Body/Body';
 import Footer from '../Footer/Footer';
 import Sidebar from '../Sidebar/Sidebar';
@@ -6,13 +7,23 @@ import './Player.css';
 
 function Player({ spotify }) {
     return (
-        <div className="player">
-            <div className="player__body">
-                <Sidebar spotify={spotify}/>
-                <Body spotify={spotify}/>
+        <BrowserRouter>
+            <div className="player">
+                <div className="player__body">
+                    <Sidebar spotify={spotify}/>
+                    <Route path="/search" exact>
+                        <Body spotify={spotify} searchRoute/>
+                    </Route>
+                    <Route path="/library" exact>
+                        <Body spotify={spotify} libraryRoute/>
+                    </Route>
+                    <Route path="/playlist/:id" exact>
+                        <Body spotify={spotify} playlistRoute/>
+                    </Route>
+                </div>
+                <Footer/>
             </div>
-            <Footer/>
-        </div>
+        </BrowserRouter>
     )
 }
 

@@ -25,3 +25,11 @@
     width: 90%;
     margin: 10px auto;
 }
+
+.sidebar > a{
+    text-decoration: none;
+}
+
+.sidebar__active > div{
+    background-color: #282828;
+}

@@ -28,4 +28,9 @@
 
 .header__right > h4{
     margin-left: 10px;
+    margin-right: 10px;
+}
+
+.header__rightLogout:hover{
+    color: #1ed15e;
 }

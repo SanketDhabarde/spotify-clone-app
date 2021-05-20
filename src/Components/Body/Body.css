@@ -1,7 +1,7 @@
 .body{
     padding: 30px;
     color: white;
-    height: 100vh;
+    height: 80vh;
     flex: 0.8;
     overflow-y: overlay;
     background: linear-gradient(rgb(91, 87, 115), rgba(0, 0, 0, 1));
@@ -27,7 +27,7 @@
     flex: 1;
 }
 .body__infoText > h2{
-    font-size: 48px;
+    font-size: 60px;
     margin-bottom: 10px;
 }
 
@@ -59,4 +59,9 @@
 .body__shuffle:hover{
     transition: tranform 200ms ease-in;
     transform: scale(1.08);
+}
+
+.body__albums{
+    display: flex;
+    flex-wrap: wrap;
 }

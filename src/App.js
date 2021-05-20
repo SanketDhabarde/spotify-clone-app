@@ -53,15 +53,15 @@ function App() {
 
 
   return (
-    <div className="app">
-      {
-        token ? (
-          <Player spotify={spotify}/>
-        ) : (
-          <Login/>
-        )
-      }
-    </div>
+      <div className="app">
+        {
+          token ? (
+            <Player spotify={spotify}/>
+          ) : (
+            <Login/>
+          )
+        }
+      </div>
   );
 }
 

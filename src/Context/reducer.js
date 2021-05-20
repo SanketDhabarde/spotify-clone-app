@@ -5,7 +5,7 @@ export const initialState = {
     item: null,
     selectedPlayList: null,
     discover_weekly: null,
-    // token: "BQDoXadsh0I-IHNrLDgiHrotbLZChcr9HYJSMNisc4IUzn4T9exyW7wMzXGqgxZMyyAWlesCVwMwpD9JXhrHfWObZomHm11S1lGoD1oW8Pn9zy3CvI4mENJCDBkO3smb4g1J0T5vvRix3xqe97qtBY1qePFxulS1l2LeHbcZVykIWZDw"
+    token: null
 };
 
 export const reducer = (state, action) => {

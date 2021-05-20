@@ -3,9 +3,8 @@ import { useDataLayerValue } from '../../Context/DataLayer';
 import './SidebarOption.css';
 
 function SidebarOption({ title, Icon, id, spotify}) {
-    const [{selectedPlayList}, dispatch] = useDataLayerValue();
-    console.log(selectedPlayList);
-
+    const [{}, dispatch] = useDataLayerValue();
+    
     const selectedPlayListHandler = (id) => {
         if(id){
             spotify.getPlaylist(id).then(response => {
@@ -17,6 +16,7 @@ function SidebarOption({ title, Icon, id, spotify}) {
         }
     }
     return (
+        
         <div className="sidebarOption" onClick={() => selectedPlayListHandler(id)}>
             {Icon && <Icon className="sidebarOption__icon"/>}
             {Icon ? <h4>{title}</h4> :  <p>{title}</p>}
