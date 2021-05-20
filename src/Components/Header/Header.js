@@ -6,7 +6,14 @@ import './Header.css';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 function Header({search, setSearch, searchRoute}) {
-    const [{ user }] = useDataLayerValue();
+    const [{ user }, dispatch] = useDataLayerValue();
+
+    const logoutHandler = () =>{
+        dispatch({
+            type: 'SET_TOKEN',
+            token: null
+        })
+    }
     
     return (
         <div className="header">
@@ -22,7 +29,7 @@ function Header({search, setSearch, searchRoute}) {
             <div className="header__right">
                 <Avatar src={user?.images[0]?.url} alt={user?.display_name}/>
                 <h4>{user?.display_name}</h4>
-                <ExitToAppIcon className="header__rightLogout"/>
+                <ExitToAppIcon className="header__rightLogout" onClick={logoutHandler}/>
             </div>
         </div>
     )

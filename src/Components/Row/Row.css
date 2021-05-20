@@ -1,0 +1,10 @@
+.row{
+    display: flex;
+    display: flex;
+    overflow-y: hidden;
+    overflow-x: scroll;
+}
+
+.row::-webkit-scrollbar{
+    display: none;
+}

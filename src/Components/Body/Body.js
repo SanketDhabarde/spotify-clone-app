@@ -3,14 +3,15 @@ import React, { useEffect, useState } from 'react';
 import { useDataLayerValue } from '../../Context/DataLayer';
 import Card from '../Card/Card';
 import Header from '../Header/Header';
+import Row from '../Row/Row';
 import SongRow from '../SongRow/SongRow';
 import './Body.css';
 
-function Body({ spotify, searchRoute, playlistRoute, libraryRoute }) {
+function Body({ spotify, searchRoute, playlistRoute, libraryRoute, homeRoute }) {
     const [{ selectedPlayList, playlists }] = useDataLayerValue();
     const [search, setSearch] = useState("");
     const [searchResult, setSearchResult] = useState([]);
-    console.log(playlists);
+    
     // to search the songs
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -29,6 +30,13 @@ function Body({ spotify, searchRoute, playlistRoute, libraryRoute }) {
 
     return (
         <div className="body">
+           {homeRoute && (
+               <>
+               <Header search={search} setSearch={setSearch}/>
+               <Row title="Top Artists" topArtist/>
+               <Row title="Top Tracks" topTrack/>
+               </>
+           )}
            {playlistRoute && (
                <>
                <Header search={search} setSearch={setSearch}/>

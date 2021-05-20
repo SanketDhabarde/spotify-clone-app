@@ -46,6 +46,20 @@ function App() {
             discover_weekly: response
           })
         })
+        // get top artists based on your playing history
+        spotify.getMyTopArtists().then(res => {
+          dispatch({
+            type:"SET_TOP_ARTISTS",
+            topArtists: res.items
+          })
+        });
+
+        spotify.getMyTopTracks().then(res => {
+          dispatch({
+            type: 'SET_TOP_TRACKS',
+            topTracks: res.items
+          })
+        })
 
       })
     }

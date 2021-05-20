@@ -11,6 +11,10 @@ function Player({ spotify }) {
             <div className="player">
                 <div className="player__body">
                     <Sidebar spotify={spotify}/>
+                    {/* based on route render different body component */}
+                    <Route path="/" exact>
+                        <Body spotify={spotify} homeRoute/>
+                    </Route>
                     <Route path="/search" exact>
                         <Body spotify={spotify} searchRoute/>
                     </Route>

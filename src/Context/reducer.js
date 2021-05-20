@@ -1,6 +1,8 @@
 export const initialState = {
     user: null,
     playlists: [],
+    topArtists: [],
+    topTracks: [],
     playing: false,
     item: null,
     selectedPlayList: null,
@@ -40,6 +42,16 @@ export const reducer = (state, action) => {
             return{
                 ...state,
                 selectedPlayList: action.selectedPlayList
+            }
+        case 'SET_TOP_ARTISTS':
+            return{
+                ...state,
+                topArtists: action.topArtists
+            }
+        case 'SET_TOP_TRACKS':
+            return{
+                ...state,
+                topTracks: action.topTracks
             }
         default:
             return state;
