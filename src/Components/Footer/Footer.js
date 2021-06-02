@@ -9,11 +9,22 @@ import VolumeDownIcon from '@material-ui/icons/VolumeDown';
 import PlaylistPlayIcon from '@material-ui/icons/PlaylistPlay';
 import { Grid, Slider } from '@material-ui/core';
 import { useDataLayerValue } from '../../Context/DataLayer';
+import PauseCircleFilledIcon from '@material-ui/icons/PauseCircleFilled';
+
 
 function Footer() {
-    const [{ item }] = useDataLayerValue();
+    const [{ item, playing }, dispatch] = useDataLayerValue();
     
+    const playingModalHandler = () => {
+        if(item){
+            dispatch({
+                type: 'SET_PLAYING',
+                playing: true
+            })
+        }
+    }
     return (
+        <>
         <div className="footer">
             {item ? (
                 <div className="footer__left">
@@ -40,7 +51,7 @@ function Footer() {
             <div className="footer__center">
                 <ShuffleIcon className="footer__green"/>
                 <SkipPreviousIcon className="footer__icon"/>
-                <PlayCircleFilledIcon fontSize="large" className="footer__icon"/>
+                {playing ? <PauseCircleFilledIcon fontSize="large" className="footer__icon"/> : <PlayCircleFilledIcon fontSize="large" className="footer__icon" onClick={playingModalHandler}/>}
                 <SkipNextIcon className="footer__icon"/>
                 <RepeatIcon className="footer__green"/>
             </div>
@@ -57,7 +68,9 @@ function Footer() {
                     </Grid>
                 </Grid>
             </div>
+            
         </div>
+        </>
     )
 }
 

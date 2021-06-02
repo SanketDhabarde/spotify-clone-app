@@ -53,6 +53,11 @@ export const reducer = (state, action) => {
                 ...state,
                 topTracks: action.topTracks
             }
+        case 'SET_PLAYING': 
+            return{
+                ...state,
+                playing: action.playing
+            }
         default:
             return state;
     }

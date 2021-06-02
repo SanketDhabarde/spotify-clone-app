@@ -8,7 +8,7 @@ import SongRow from '../SongRow/SongRow';
 import './Body.css';
 
 function Body({ spotify, searchRoute, playlistRoute, libraryRoute, homeRoute }) {
-    const [{ selectedPlayList, playlists }] = useDataLayerValue();
+    const [{ selectedPlayList, playlists}] = useDataLayerValue();
     const [search, setSearch] = useState("");
     const [searchResult, setSearchResult] = useState([]);
     

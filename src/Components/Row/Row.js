@@ -4,7 +4,7 @@ import Card from '../Card/Card';
 import './Row.css';
 
 function Row({title, topTrack, topArtist}) {
-    const [{topArtists, topTracks}, dispatch] = useDataLayerValue();
+    const [{topArtists, topTracks}] = useDataLayerValue();
 
     return (
         <>

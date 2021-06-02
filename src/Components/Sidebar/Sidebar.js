@@ -8,7 +8,7 @@ import { useDataLayerValue } from '../../Context/DataLayer';
 import { NavLink } from 'react-router-dom';
 
 function Sidebar({spotify}) {
-    const [{ playlists}] = useDataLayerValue();
+    const [{ playlists }] = useDataLayerValue();
     
     return (
         <div className="sidebar">
