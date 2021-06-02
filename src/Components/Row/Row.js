@@ -3,9 +3,9 @@ import { useDataLayerValue } from '../../Context/DataLayer';
 import Card from '../Card/Card';
 import './Row.css';
 
-function Row({title, topTrack, topArtist}) {
-    const [{topArtists, topTracks}] = useDataLayerValue();
-
+function Row({title, topTrack, topArtist, recentlyPlay}) {
+    const [{topArtists, topTracks, recentlyPlayed}] = useDataLayerValue();
+    
     return (
         <>
         <h2>{title}</h2>
@@ -23,7 +23,13 @@ function Row({title, topTrack, topArtist}) {
                 ))}
             </div>
         )}
-        
+        {recentlyPlay && (
+            <div className="row">
+                {recentlyPlayed?.map(track => (
+                    <Card track={track.track} key={track.played_at}/>
+                ))}
+            </div>
+        )}
         </>
     )
 }

@@ -3,10 +3,10 @@ export const initialState = {
     playlists: [],
     topArtists: [],
     topTracks: [],
+    recentlyPlayed: [],
     playing: false,
     item: null,
     selectedPlayList: null,
-    discover_weekly: null,
     token: null
 };
 
@@ -28,11 +28,6 @@ export const reducer = (state, action) => {
                 ...state,
                 playlists: action.playlists
             }
-        case 'SET_DISCOVER_WEEKLY':
-            return{
-                ...state,
-                discover_weekly: action.discover_weekly
-            }
         case 'SET_ITEM':
             return{
                 ...state,
@@ -52,6 +47,11 @@ export const reducer = (state, action) => {
             return{
                 ...state,
                 topTracks: action.topTracks
+            }
+        case 'SET_RECENTLY_PLAYED':
+            return{
+                ...state,
+                recentlyPlayed: action.recentlyPlayed
             }
         case 'SET_PLAYING': 
             return{

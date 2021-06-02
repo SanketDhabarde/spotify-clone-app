@@ -35,6 +35,7 @@ function Body({ spotify, searchRoute, playlistRoute, libraryRoute, homeRoute }) 
                <Header search={search} setSearch={setSearch}/>
                <Row title="Top Artists" topArtist/>
                <Row title="Top Tracks" topTrack/>
+               <Row title="Recently Played" recentlyPlay/>
                </>
            )}
            {playlistRoute && (
@@ -78,7 +79,7 @@ function Body({ spotify, searchRoute, playlistRoute, libraryRoute, homeRoute }) 
                <Header search={search} setSearch={setSearch}/>
                 <div className="body__albums">
                     {playlists?.items.map(item => (
-                        <Card key={item.id} playlist={item}/>
+                        <Card key={item.id} playlist={item} style={{maxWidth: '250px'}}/>
                     ))}
                 </div>
                </>

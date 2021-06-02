@@ -40,12 +40,6 @@ function App() {
           })
         });
 
-        spotify.getPlaylist("37i9dQZEVXcFIhrwVNssHq").then(response => {
-          dispatch({
-            type: 'SET_DISCOVER_WEEKLY',
-            discover_weekly: response
-          })
-        })
         // get top artists based on your playing history
         spotify.getMyTopArtists().then(res => {
           dispatch({
@@ -58,6 +52,13 @@ function App() {
           dispatch({
             type: 'SET_TOP_TRACKS',
             topTracks: res.items
+          })
+        });
+
+        spotify.getMyRecentlyPlayedTracks().then(res => {
+          dispatch({
+            type: 'SET_RECENTLY_PLAYED',
+            recentlyPlayed: res.items
           })
         })
 

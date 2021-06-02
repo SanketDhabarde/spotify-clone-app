@@ -1,9 +1,18 @@
 import React from 'react';
+import { useDataLayerValue } from '../../Context/DataLayer';
 import './Card.css';
 
 function Card({ playlist, artist, track }) {
+    const [{}, dispatch] = useDataLayerValue();
+
+    const currentTrackHandler = (track) => {
+        dispatch({
+            type:'SET_ITEM',
+            item: track
+        });
+    }
     return (
-        <div className={`card ${artist && "card__artist"}`}>
+        <div className={`card ${!playlist && "card__artist"}`}>
             {playlist && (
                 <>
                 <img src={playlist?.images[0].url} alt="" />
@@ -23,7 +32,7 @@ function Card({ playlist, artist, track }) {
             )}
             {track && (
                 <>
-                    <img src={track?.album.images[0].url} alt="" />
+                    <img src={track?.album.images[0].url} alt="" onClick={() => currentTrackHandler(track)}/>
                     <div className="card__info">
                         <h4>{track?.name.substring(0,20) + "..."}</h4>
                     </div>

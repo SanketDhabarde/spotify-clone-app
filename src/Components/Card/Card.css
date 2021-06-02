@@ -5,6 +5,7 @@
     object-fit: contain;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     border-radius: 5px;
+    cursor: pointer;
 }
 .card > img{
     width: 100%;
@@ -15,5 +16,5 @@
 }
 
 .card__artist{
-    max-width: 300px;
+    min-width: 200px;
 }
