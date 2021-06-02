@@ -10,10 +10,11 @@ import PlaylistPlayIcon from '@material-ui/icons/PlaylistPlay';
 import { Grid, Slider } from '@material-ui/core';
 import { useDataLayerValue } from '../../Context/DataLayer';
 import PauseCircleFilledIcon from '@material-ui/icons/PauseCircleFilled';
+import Modal from '../Modal/Modal';
 
 
 function Footer() {
-    const [{ item, playing }, dispatch] = useDataLayerValue();
+    const [{ item, playing}, dispatch] = useDataLayerValue();
     
     const playingModalHandler = () => {
         if(item){
@@ -70,6 +71,7 @@ function Footer() {
             </div>
             
         </div>
+        {playing && <Modal track={item}/>}
         </>
     )
 }
