@@ -7,8 +7,8 @@ import Row from '../Row/Row';
 import SongRow from '../SongRow/SongRow';
 import './Body.css';
 
-function Body({ spotify, searchRoute, playlistRoute, libraryRoute, homeRoute }) {
-    const [{ selectedPlayList, playlists}] = useDataLayerValue();
+function Body({ spotify, searchRoute, playlistRoute, libraryRoute, homeRoute, favRoute }) {
+    const [{ selectedPlayList, playlists, favTracks}] = useDataLayerValue();
     const [search, setSearch] = useState("");
     const [searchResult, setSearchResult] = useState([]);
     
@@ -59,6 +59,30 @@ function Body({ spotify, searchRoute, playlistRoute, libraryRoute, homeRoute }) 
                        <MoreHoriz />
                    </div>
                    {selectedPlayList?.tracks.items.map(item => (
+                       <SongRow track={item.track} key={item.track.id}/>
+                   ))}
+               </div>
+               </>
+           )}
+           {favRoute && (
+               <>
+               <Header search={search} setSearch={setSearch}/>
+               <div className="body__info">
+                   <img src="https://t.scdn.co/images/3099b3803ad9496896c43f22fe9be8c4.png" alt="" />
+                   <div className="body__infoText">
+                       <strong>PLAYLIST</strong>
+                       <h2>Liked Songs</h2>
+                   </div>
+               </div>
+               <div className="body__songs">
+                   <div className="body__icons">
+                       <PlayCircleFilled
+                           className="body__shuffle"
+                       />
+                       <Favorite fontSize="large" />
+                       <MoreHoriz />
+                   </div>
+                   {favTracks?.map(item => (
                        <SongRow track={item.track} key={item.track.id}/>
                    ))}
                </div>

@@ -21,6 +21,9 @@ function Player({ spotify }) {
                     <Route path="/library" exact>
                         <Body spotify={spotify} libraryRoute/>
                     </Route>
+                    <Route path="/favourite" exact>
+                        <Body spotify={spotify} favRoute/>
+                    </Route>
                     <Route path="/playlist/:id" exact>
                         <Body spotify={spotify} playlistRoute/>
                     </Route>

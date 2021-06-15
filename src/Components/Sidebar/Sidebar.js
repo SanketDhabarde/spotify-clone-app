@@ -6,6 +6,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import LibraryMusicIcon from '@material-ui/icons/LibraryMusic';
 import { useDataLayerValue } from '../../Context/DataLayer';
 import { NavLink } from 'react-router-dom';
+import FavoriteTwoToneIcon from '@material-ui/icons/FavoriteTwoTone';
 
 function Sidebar({spotify}) {
     const [{ playlists }] = useDataLayerValue();
@@ -23,6 +24,10 @@ function Sidebar({spotify}) {
             
             <NavLink to="/library" activeClassName="sidebar__active">
                 <SidebarOption title="Your Library" Icon={LibraryMusicIcon}/>
+            </NavLink>
+
+            <NavLink to="/favourite" activeClassName="sidebar__active">
+                <SidebarOption title="favourite" Icon={FavoriteTwoToneIcon}/>
             </NavLink>
             
             <br />

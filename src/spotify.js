@@ -12,6 +12,7 @@ const scopes = [
   "user-read-playback-state",
   "user-top-read",
   "user-modify-playback-state",
+  "user-library-read"
 ];
 
 export const getTokenFromUrl = new URLSearchParams(window.location.hash.substring(1)).get("access_token");

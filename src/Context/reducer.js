@@ -4,6 +4,7 @@ export const initialState = {
     topArtists: [],
     topTracks: [],
     recentlyPlayed: [],
+    favTracks: [],
     playing: false,
     item: null,
     selectedPlayList: null,
@@ -57,6 +58,11 @@ export const reducer = (state, action) => {
             return{
                 ...state,
                 playing: action.playing
+            }
+        case 'SET_FAV_TRACKS':
+            return{
+                ...state,
+                favTracks: action.favTracks
             }
         default:
             return state;
